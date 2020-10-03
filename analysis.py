@@ -49,7 +49,6 @@ def extract_story(txt_path):
 
 def find_chara_pairs(novel_path, chara_list, represent_names,csv_path):
     story = extract_story(novel_path)
-
     for p_num, paragraph in enumerate(story):
         chara_in_paragraph = []
         for s_num, sentence in enumerate(paragraph):
@@ -64,8 +63,13 @@ def find_chara_pairs(novel_path, chara_list, represent_names,csv_path):
         
 
         chara_pairs = list(set(list(itertools.combinations(list(set(chara_in_paragraph)),2))))
-        with open(csv_path, "a") as f:
-            f.write("{},{},{},{}".format(os.path.basename(novel_path),(p_num+1),(s_num+1),chara_pairs) + "\n")
+        # 段落内にペアがない場合は次のループへ
+        if len(chara_pairs) == 0:
+            continue
+        # 段落内にペアがあったらcsvに記述する．
+        else:    
+            with open(csv_path, "a") as f:
+                f.write("{},{},{},{}".format(os.path.basename(novel_path),(p_num+1),(s_num+1),chara_pairs) + "\n")
 
 def load_chara_data(CHARA_TXT_PATH, RNAME_TXT_PATH):
     f = open(CHARA_TXT_PATH, "r")
