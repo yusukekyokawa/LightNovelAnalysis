@@ -1,5 +1,4 @@
 import os
-import csv
 import itertools
 import glob
 from tqdm import tqdm

@@ -1,6 +1,22 @@
 # ラノベ解析
+## 
 
-## 要件
+## Environments
+- OS: MacOS Catalina 10.15.4
+- python 3.7.3
+### Requirements
+- tqdm
+  - https://github.com/tqdm/tqdm
+
+## Usage
+1. 本文フォルダを`novel-txts`リネームし，`analysis.py`と同じディレクトリに配置
+2. `python3 analysis.py`で実行
+
+## Notice
+
+- 人物リストにいらないい`,`があるとエラーになるので事前に除去しておくとこと．もしくはcharacters.txtを使用すること
+
+## Memo
 - 本文内に誰と誰が登場するのか？
   - ex.
     - AさんとBさんが話した．
@@ -14,12 +30,3 @@
   - 序盤にあらすじ****が目印
   - 後半に登場人物紹介が入る．
   - 名前は正規化する
-
-## 
-1. 本文ファイルを`novel-txts`二理ネーム
-2. 人物リスト大体50人.txtをpeople_list.txt二理ネーム
-
-
-## Notice
-
-- 人物リストにいらないい`,`があるとエラーになるので事前に除去しておくとこと．
