@@ -15,8 +15,8 @@ if __name__ == "__main__":
 
     chara_list = []
     for line in f.readlines():
-        line=line.strip()#末尾の改行を除去、
-        line=line.split("\n")# 改行までをリスト化.
+        line=line.strip()#末尾の改行を除去
+        line=line.split("\n")# 改行までをリスト化
         chara_list.append(line)
     
     print(chara_list)
