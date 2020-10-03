@@ -1,6 +1,5 @@
 import os
 import csv
-import pandas
 import itertools
 import glob
 from tqdm import tqdm
