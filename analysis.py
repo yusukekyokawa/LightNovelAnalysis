@@ -66,8 +66,9 @@ def find_chara_pairs(novel_path, chara_list, represent_names,csv_path):
             continue
         # 段落内にペアがあったらcsvに記述する．
         else:    
-            with open(csv_path, "a") as f:
-                f.write("{},{},{},{}".format(os.path.basename(novel_path),(p_num+1),(s_num+1),chara_pairs) + "\n")
+            for chara_pair in chara_pairs:    
+                with open(csv_path, "a") as f:
+                    f.write("{},{},{}".format(os.path.basename(novel_path),chara_pair[0],chara_pair[1]) + "\n")
 
 def load_chara_data(CHARA_TXT_PATH, RNAME_TXT_PATH):
     f = open(CHARA_TXT_PATH, "r")
@@ -83,8 +84,6 @@ def load_chara_data(CHARA_TXT_PATH, RNAME_TXT_PATH):
 
 
 
-def if_chara_pairas():
-    pass
   
 
 
@@ -97,10 +96,10 @@ if __name__ == "__main__":
     RNAME_TXT_PATH = "represent_name.txt"
 
     # データ保存のcsv_path
-    CSV_PATH = "v1.csv"
+    CSV_PATH = "v2.csv"
     # csv作成
     with open(CSV_PATH, "w") as f:
-        f.write("filename,paragraph,sentence,pairs\n")
+        f.write("filename,chara_a,chara_b\n")
 
     chara_list, represent_names = load_chara_data(CHARA_TXT_PATH, RNAME_TXT_PATH)
     novel_path_list = sorted(glob.glob("./novel-txts/*.txt"))
